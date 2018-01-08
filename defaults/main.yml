@@ -1,0 +1,11 @@
+---
+
+rancher_server_container_name: rancher-server
+rancher_server_image_name: rancher/server
+rancher_server_version: v1.6.13
+rancher_server_host: "{{ ansible_hostname }}"
+rancher_server_port: 8080
+rancher_server_secured_port: 443
+rancher_server_api_account_name: devops
+rancher_server_admin_account_name: devops
+rancher_server_admin_account_passwor: Ostrava123

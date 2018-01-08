@@ -1,0 +1,25 @@
+---
+- name: install rancher/server docker container
+  docker_container:
+    name: "{{ rancher_server_container_name }}"
+    image: "{{ rancher_server_image_name }}":"{{ rancher_server_version }}"
+    state: started
+    restart_policy: always
+    ports:
+      - "127.0.0.1:8080:8080"
+
+- name: wait for the rancher server to start
+  #  action: command docker logs {{ rancher.server.container_name }}
+  #  register: rancher_logs
+  #  until: rancher_logs.stdout.find("Listening on") != -1
+  #  retries: 30
+  #  delay: 10
+  pause: seconds=30
+
+- name: create ssl cert directory
+  file:
+    path: /var/lib/rancher/etc/ssl
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
