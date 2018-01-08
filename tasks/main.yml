@@ -2,7 +2,7 @@
 - name: install rancher/server docker container
   docker_container:
     name: "{{ rancher_server_container_name }}"
-    image: "{{ rancher_server_image_name }}":"{{ rancher_server_version }}"
+    image: "{{ rancher_server_image_name }}:{{ rancher_server_version }}"
     state: started
     restart_policy: always
     ports:
